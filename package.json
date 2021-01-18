@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MadsAkselsen/spock-rock-game.git"
+    "url": "git+https://github.com/MadsAkselsen/nasa-apod.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MadsAkselsen/spock-rock-game/issues"
+    "url": "https://github.com/MadsAkselsen/nasa-apod/issues"
   },
-  "homepage": "https://MadsAkselsen.github.io/spock-rock-game",
+  "homepage": "https://MadsAkselsen.github.io/nasa-apod",
   "devDependencies": {
     "css-loader": "^5.0.1",
     "html-webpack-plugin": "^4.5.1",
