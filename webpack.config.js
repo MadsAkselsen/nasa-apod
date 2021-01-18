@@ -10,6 +10,8 @@ module.exports = {
   },
   devServer: {
     contentBase: './',
+    inline: true,
+    hot: true,
   },
   module: {
     rules: [
