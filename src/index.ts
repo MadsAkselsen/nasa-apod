@@ -18,7 +18,6 @@ export function addToFavorites(itemUrl: string) {
       localStorage.setItem('nasaFavorites', JSON.stringify(favorites));
     }
   });
-  console.log(favorites);
 }
 
 const loadImages = async () => {
