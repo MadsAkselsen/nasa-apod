@@ -1,3 +1,13 @@
-console.log('test2');
+import { DOMElements } from './DOMElements';
+import { updateDOM } from './updateDOM';
+import { fetchAPIPictures } from './API';
 
-console.log('test3');
+let nasaDataArray: NasaImageData[] = [];
+
+const loadImages = async () => {
+  nasaDataArray = await fetchAPIPictures();
+  updateDOM(nasaDataArray);
+};
+
+// On Load
+loadImages();
