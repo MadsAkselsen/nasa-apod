@@ -7,8 +7,15 @@ let favorites: Favorites = {};
 
 export function addToFavorites(itemUrl: string) {
   nasaDataArray.forEach((item) => {
-    if (item.url.includes(itemUrl)) {
+    if (item.url.includes(itemUrl) && !favorites[itemUrl]) {
       favorites[itemUrl] = item;
+      // show save confirmation for 2 seconds
+      DOMElements.saveConfirmed.hidden = false;
+      setTimeout(() => {
+        DOMElements.saveConfirmed.hidden = true;
+      }, 2000);
+      // set favorites in localStorage
+      localStorage.setItem('nasaFavorites', JSON.stringify(favorites));
     }
   });
   console.log(favorites);

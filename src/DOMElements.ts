@@ -1,4 +1,12 @@
-export const DOMElements = {
+interface DOMElements {
+  resultsNav: HTMLElement;
+  favoritesNav: HTMLElement;
+  imagesContainer: HTMLElement;
+  saveConfirmed: HTMLElement;
+  loader: HTMLElement;
+}
+
+export const DOMElements: DOMElements = {
   resultsNav: document.getElementById('resultsNav'),
   favoritesNav: document.getElementById('favoritesNav'),
   imagesContainer: document.querySelector('.images-container'),
