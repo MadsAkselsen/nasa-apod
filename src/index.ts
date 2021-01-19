@@ -3,11 +3,15 @@ import { updateDOM } from './updateDOM';
 import { fetchAPIPictures } from './API';
 
 let nasaDataArray: NasaImageData[] = [];
-let favorites = {};
+let favorites: Favorites = {};
 
 export function addToFavorites(itemUrl: string) {
-  favorites = itemUrl;
-  console.log('yay, we added to favorites', favorites);
+  nasaDataArray.forEach((item) => {
+    if (item.url.includes(itemUrl)) {
+      favorites[itemUrl] = item;
+    }
+  });
+  console.log(favorites);
 }
 
 const loadImages = async () => {
