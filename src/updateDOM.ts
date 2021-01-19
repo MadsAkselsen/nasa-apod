@@ -1,4 +1,5 @@
 import { DOMElements } from './DOMElements';
+import { addToFavorites } from './index';
 
 export function updateDOM(data: NasaImageData[]) {
   data.forEach(({ hdurl, date, title, url, explanation, copyright }) => {
@@ -28,6 +29,8 @@ export function updateDOM(data: NasaImageData[]) {
     const clickable = document.createElement('p');
     clickable.classList.add('clickable');
     clickable.textContent = 'Add to Favorites';
+    clickable.addEventListener('click', () => addToFavorites(url));
+
     // card-text
     const cardText = document.createElement('p');
     cardText.classList.add('card-text');
