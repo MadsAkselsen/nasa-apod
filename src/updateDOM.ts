@@ -1,5 +1,5 @@
 import { DOMElements } from './DOMElements';
-import { addToFavorites, loadFromLocalStorage } from './index';
+import { addToFavorites, loadFromLocalStorage, removeFavorite } from './index';
 
 function createDOMNodes(
   page: string,
@@ -37,8 +37,13 @@ function createDOMNodes(
       // add to favorites
       const clickable = document.createElement('p');
       clickable.classList.add('clickable');
-      clickable.textContent = 'Add to Favorites';
-      clickable.addEventListener('click', () => addToFavorites(url));
+      if (page === 'nasaData') {
+        clickable.textContent = 'Add to Favorites';
+        clickable.addEventListener('click', () => addToFavorites(url));
+      } else {
+        clickable.textContent = 'Remove Favorite';
+        clickable.addEventListener('click', () => removeFavorite(url));
+      }
 
       // card-text
       const cardText = document.createElement('p');
@@ -63,10 +68,15 @@ function createDOMNodes(
   );
 }
 
+function removeAllChildNodes(parent: HTMLElement) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+}
+
 export function updateDOM(page: string, data: NasaImageData[]) {
   // get favorites from localStorage
-
   const favorites = loadFromLocalStorage();
-
+  removeAllChildNodes(DOMElements.imagesContainer);
   createDOMNodes(page, data, favorites);
 }
