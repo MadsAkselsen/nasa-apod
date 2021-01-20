@@ -7,11 +7,10 @@ const proxyUrl: string = 'https://whispering-reef-88562.herokuapp.com/';
 const proxiedApiUrl: string = proxyUrl + apiUrl;
 
 // Get 10 Images from NASA API
-export async function fetchAPIPictures() {
+export async function fetchAPIPictures(): Promise<NasaImageData[]> {
   try {
     const response = await fetch(proxiedApiUrl);
-    const data = await response.json();
-    console.log(data);
+    const data: NasaImageData[] = await response.json();
     return data;
   } catch (err) {
     // Catch error here

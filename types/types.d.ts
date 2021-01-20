@@ -8,3 +8,7 @@ interface NasaImageData {
   title: string;
   url: string;
 }
+
+interface Favorites {
+  [key: string]: NasaImageData;
+}
