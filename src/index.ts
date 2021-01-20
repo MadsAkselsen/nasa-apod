@@ -38,8 +38,13 @@ export function loadFromLocalStorage() {
 
 const loadImages = async () => {
   nasaDataArray = await fetchAPIPictures();
-  updateDOM('favorites', nasaDataArray);
+  updateDOM('nasaData', nasaDataArray);
 };
+
+// event listeners
+DOMElements.favoritesEl.addEventListener('click', () =>
+  updateDOM('favorites', nasaDataArray)
+);
 
 // On Load
 loadImages();
