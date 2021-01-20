@@ -23,13 +23,13 @@ export function addToFavorites(itemUrl: string) {
 export function loadFromLocalStorage() {
   if (localStorage.getItem('nasaFavorites')) {
     favorites = JSON.parse(localStorage.getItem('nasaFavorites'));
-    console.log('storage favorites', favorites);
+    return favorites;
   }
 }
 
 const loadImages = async () => {
   nasaDataArray = await fetchAPIPictures();
-  updateDOM(nasaDataArray);
+  updateDOM('favorites', nasaDataArray);
 };
 
 // On Load
