@@ -20,6 +20,15 @@ export function addToFavorites(itemUrl: string) {
   });
 }
 
+export function removeFavorite(itemUrl: string) {
+  if (favorites[itemUrl]) {
+    delete favorites[itemUrl];
+    // set favorites in localStorage
+    localStorage.setItem('nasaFavorites', JSON.stringify(favorites));
+    updateDOM('favorites', nasaDataArray);
+  }
+}
+
 export function loadFromLocalStorage() {
   if (localStorage.getItem('nasaFavorites')) {
     favorites = JSON.parse(localStorage.getItem('nasaFavorites'));
