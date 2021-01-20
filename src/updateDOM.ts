@@ -1,7 +1,7 @@
 import { DOMElements } from './DOMElements';
-import { addToFavorites } from './index';
+import { addToFavorites, loadFromLocalStorage } from './index';
 
-export function updateDOM(data: NasaImageData[]) {
+function createDOMNodes(data: NasaImageData[]) {
   data.forEach(({ hdurl, date, title, url, explanation, copyright }) => {
     // Card Container
     const card = document.createElement('div');
@@ -51,4 +51,10 @@ export function updateDOM(data: NasaImageData[]) {
     cardBody.append(cardTitle, clickable, cardText, textMuted);
     textMuted.append(dateEl, copyrightInfo);
   });
+}
+
+export function updateDOM(data: NasaImageData[]) {
+  // get favorites from localStorage
+  loadFromLocalStorage();
+  createDOMNodes(data);
 }

@@ -11,7 +11,6 @@ export async function fetchAPIPictures(): Promise<NasaImageData[]> {
   try {
     const response = await fetch(proxiedApiUrl);
     const data: NasaImageData[] = await response.json();
-    console.log(data);
     return data;
   } catch (err) {
     // Catch error here
