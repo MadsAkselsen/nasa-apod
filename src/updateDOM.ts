@@ -79,4 +79,11 @@ export function updateDOM(page: string, data: NasaImageData[]) {
   const favorites = loadFromLocalStorage();
   removeAllChildNodes(DOMElements.imagesContainer);
   createDOMNodes(page, data, favorites);
+  if (page === 'nasaData') {
+    DOMElements.resultsNav.classList.remove('hidden');
+    DOMElements.favoritesNav.classList.add('hidden');
+  } else {
+    DOMElements.resultsNav.classList.add('hidden');
+    DOMElements.favoritesNav.classList.remove('hidden');
+  }
 }

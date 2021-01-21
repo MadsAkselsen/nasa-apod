@@ -29,7 +29,7 @@ export function removeFavorite(itemUrl: string) {
   }
 }
 
-export function loadFromLocalStorage() {
+export function loadFromLocalStorage(): Favorites {
   if (localStorage.getItem('nasaFavorites')) {
     favorites = JSON.parse(localStorage.getItem('nasaFavorites'));
     return favorites;
@@ -37,9 +37,19 @@ export function loadFromLocalStorage() {
 }
 
 const loadImages = async () => {
+  DOMElements.loader.classList.remove('hidden');
   nasaDataArray = await fetchAPIPictures();
-  updateDOM('favorites', nasaDataArray);
+  updateDOM('nasaData', nasaDataArray);
+  window.scrollTo({ top: 0 });
+  DOMElements.loader.classList.add('hidden');
 };
+
+// event listeners
+DOMElements.favoritesEl.addEventListener('click', () =>
+  updateDOM('favorites', nasaDataArray)
+);
+DOMElements.loadMoreFavsEl.addEventListener('click', () => loadImages());
+DOMElements.loadMoreEl.addEventListener('click', () => loadImages());
 
 // On Load
 loadImages();
