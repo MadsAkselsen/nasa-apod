@@ -1,6 +1,7 @@
 import { DOMElements } from './DOMElements';
 import { updateDOM } from './updateDOM';
 import { fetchAPIPictures } from './API';
+import './index.css';
 
 let nasaDataArray: NasaImageData[] = [];
 let favorites: Favorites = {};
