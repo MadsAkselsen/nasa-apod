@@ -5,6 +5,8 @@ interface DOMElements {
   saveConfirmed: HTMLElement;
   loader: HTMLElement;
   favoritesEl: HTMLElement;
+  loadMoreEl: HTMLElement;
+  loadMoreFavsEl: HTMLElement;
 }
 
 export const DOMElements: DOMElements = {
@@ -14,6 +16,8 @@ export const DOMElements: DOMElements = {
   saveConfirmed: document.querySelector('.save-confirmed'),
   loader: document.querySelector('.loader'),
   favoritesEl: document.getElementById('favoritesEl'),
+  loadMoreEl: document.getElementById('loadMoreEl'),
+  loadMoreFavsEl: document.getElementById('loadMoreFavsEl'),
 };
 /* const resultsNav = document.getElementById('resultsNav');
 const resultsNav = document.getElementById('resultsNav'); */
