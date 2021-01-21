@@ -1,0 +1,1 @@
+//! why does adding type NasaImageData[] cause an error?
