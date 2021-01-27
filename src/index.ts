@@ -2,6 +2,7 @@ import { DOMElements } from './DOMElements';
 import { updateDOM } from './updateDOM';
 import { fetchAPIPictures } from './API';
 import './index.css';
+import './components/button';
 
 let nasaDataArray: NasaImageData[] = [];
 let favorites: Favorites = {};
